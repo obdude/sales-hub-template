@@ -2,7 +2,7 @@
 
 *by Tim Ikels*
 
-<hr>
+<br>
 
 <p align="center">
   <a href="/descriptive-template" style="text-decoration:none;">

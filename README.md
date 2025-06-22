@@ -1,5 +1,7 @@
 # Sales Hub - Template
 
+The template in action: **[here](https://sh-template.timikels.com)**
+
 <br>
 
 <p align="center">

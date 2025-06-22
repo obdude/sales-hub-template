@@ -1,7 +1,5 @@
 # Sales Hub - Template
 
-*by Tim Ikels*
-
 <br>
 
 <p align="center">

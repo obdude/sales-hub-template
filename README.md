@@ -15,3 +15,5 @@
 </p>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc7f25f5-8619-4dad-9f47-f6dc1576a473/deploy-status)](https://app.netlify.com/projects/sales-hub-template/deploys)
+
+*by Tim Ikels - [ikels.org](https://ikels.org)*

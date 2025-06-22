@@ -1,1 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 5-Minute Focus | Overcome Creative Procrastination</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLE & GLOBAL STYLES --- */
+        :root {
+            --primary-color: #007bff;
+            --primary-color-hover: #0056b3;
+            --dark-text: #333333;
+            --light-text: #f8f9fa;
+            --body-bg: #ffffff;
+            --section-bg-light: #f8f9fa;
+            --headline-font: 'Lato', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
 
+        /* Basic reset and mobile-first typography */
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: var(--body-font);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--body-bg);
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--headline-font);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-top: 0;
+        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: 1rem; }
+        a { color: var(--primary-color); }
+        img { max-width: 100%; height: auto; }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        .text-center { text-align: center; }
+        .section-light-bg { background-color: var(--section-bg-light); }
+
+        /* --- BUTTON STYLES --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: var(--primary-color-hover);
+            color: var(--light-text);
+        }
+        .cta-subtext {
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        /* --- PRODUCT IMAGE STYLES --- */
+        .product-image {
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            max-width: 400px;
+        }
+        
+        /* --- STYLES FOR IMAGE WITH TESTIMONIAL OVERLAY --- */
+        .image-overlay-container {
+            position: relative; /* This is the anchor for the overlay */
+            margin: 30px auto;
+            max-width: 600px; /* Control the max width of this element */
+            border-radius: 8px;
+            overflow: hidden; /* Ensures the overlay corners match the container's */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .image-overlay-container .overlay-image {
+            display: block; /* Removes any extra space below the image */
+            width: 100%;
+        }
+        .testimonial-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            color: #fff;
+            padding: 20px 25px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .testimonial-overlay blockquote {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+        .testimonial-overlay cite {
+            font-style: normal;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+        
+        /* --- SECTION SPECIFIC STYLES --- */
+        .hero-section .pre-headline {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .hero-section .sub-headline {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 20px auto 30px;
+        }
+
+        .testimonial-box {
+            background: #fff;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .testimonial-author {
+            font-weight: 700;
+            margin-top: 15px;
+            display: block;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .benefits-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+        }
+        .benefits-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .offer-stack {
+            border: 2px solid var(--primary-color);
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #fef8e3;
+        }
+        .offer-stack .total-value {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        .offer-stack .final-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        .guarantee-box {
+            border: 2px dashed #6c757d;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-direction: column;
+        }
+        .guarantee-box .guarantee-icon { font-size: 4rem; }
+        
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question { font-weight: 700; }
+
+        .final-ps { font-style: italic; }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--light-text);
+            font-size: 0.9rem;
+            padding: 40px 0;
+        }
+        footer a { color: #fff; }
+        footer .footer-links { margin-bottom: 15px; }
+        footer .footer-links a { margin: 0 10px; }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            .container { padding: 80px 0; }
+            .guarantee-box { flex-direction: row; text-align: left; }
+            .guarantee-box .guarantee-icon { font-size: 5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section section-light-bg text-center">
+        <div class="container">
+            <p class="pre-headline">For Frustrated Creatives & Remote Professionals</p>
+            <h1>Finally, A Proven Method to Overcome Procrastination and Enter a State of Deep Focus... in Just 5 Minutes.</h1>
+            <p class="sub-headline">Stop wrestling with willpower and complex productivity systems. Discover the simple psychological trigger that kickstarts your brain's "work mode" on command.</p>
+            
+            <img src="The_5-Minute_Focus_book_cover.jpg" alt="3D cover of The 5-Minute Focus book" class="product-image">
+
+            <a href="#pricing" class="cta-button">
+                Get Instant Access Now
+                <span class="cta-subtext">30-Day Money-Back Guarantee</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="problem-agitation-section">
+            <div class="container">
+                <h2>Does This Sound Painfully Familiar?</h2>
+                <p>You sit down at your desk, coffee in hand, ready to tackle your most important project. The blank page is staring back at you. You know *exactly* what you need to do.</p>
+                <ul>
+                    <li>But first, a "quick check" of your email. Then Twitter. Then Instagram. Suddenly, an hour has vanished and you've accomplished nothing.</li>
+                    <li>You spend more time organizing your to-do list in a fancy app than actually *doing* the tasks on the list. It feels productive, but it's just a clever form of procrastination.</li>
+                    <li>By 4 PM, a wave of guilt washes over you. Another day "wasted." You promise yourself that tomorrow will be different... but it rarely is.</li>
+                </ul>
+                <h3>It's Not Your Fault... You've Been Set Up to Fail.</h3>
+                <p>You've been fed a lie by "productivity gurus" that the answer is to wake up at 5 AM, take ice-cold showers, and build a color-coded "second brain" in a complex app. They tell you that you just need more discipline.</p>
+                <p>The truth is, your brain is wired to resist uncertainty and seek out easy, predictable rewards (like social media notifications). Fighting this with sheer willpower is a battle you will lose every time.</p>
+            </div>
+        </section>
+
+        <section class="solution-section section-light-bg">
+            <div class="container">
+                <h2 class="text-center">Introducing: The 5-Minute Focus</h2>
+                <p class="text-center">The step-by-step guide to mastering your creative focus and shipping work that matters.</p>
+                
+                <!-- START: Image with Testimonial Overlay -->
+                <div class="image-overlay-container">
+                    <img src="happy_person_in_nature.jpg" alt="A happy, focused woman enjoying nature peacefully" class="overlay-image">
+                    <div class="testimonial-overlay">
+                        <blockquote>"For the first time in years, the mental chatter is gone. I can finally just <em>be</em> and <em>create</em>."</blockquote>
+                        <cite>- Jessica M.</cite>
+                    </div>
+                </div>
+                <!-- END: Image with Testimonial Overlay -->
+
+                <p>This isn't another 300-page book on productivity theory. It's a short, actionable blueprint designed to give you one thing: a reliable way to *start*. It's a simple "ignition sequence" for your brain that bypasses resistance and makes entering a state of flow almost automatic.</p>
+                <p>Unlike methods that require massive life changes, The 5-Minute Focus leverages a proven psychological trigger to build immediate momentum, turning the most daunting tasks into something you can start in less time than it takes to brew a cup of coffee.</p>
+            </div>
+        </section>
+        
+        <section class="proof-section">
+            <div class="container">
+                <h2 class="text-center">Created by a Procrastinator, for Procrastinators</h2>
+                <p>Hi, I'm Alex Carter. I'm not a productivity guru who was born organized. For years, I was a freelance writer drowning in deadlines I couldn't start, paralyzed by the "blank page" anxiety. I tried every app, system, and hack out there.</p>
+                <p>It wasn't until I stopped trying to be "more disciplined" and focused on one tiny thing—making the first 5 minutes ridiculously easy—that everything changed. I developed a simple system that short-circuited my procrastination. Since then, I've used it to write 3 books and help over 2,500 other creatives finally get their best work out into the world.</p>
+                <h3 class="text-center" style="margin-top: 50px;">Don't Just Take My Word For It...</h3>
+                <div class="testimonial-box">
+                    <p>"I had been 'meaning to' finish my portfolio website for over a year. I read The 5-Minute Focus on a Saturday and used the ignition sequence on Monday morning. My portfolio was live by Friday. It landed me two new clients the very next month. Unbelievable."</p>
+                    <strong class="testimonial-author">- Sarah K., Freelance Graphic Designer</strong>
+                </div>
+                <div class="testimonial-box">
+                    <p>"I always thought I was just lazy. This book showed me it was about momentum, not motivation. The idea of the 'Focus Fortress' was a game-changer. I've written more for my novel in the last 30 days than in the previous six months combined. Thank you, Alex!"</p>
+                    <strong class="testimonial-author">- Mark T., Author</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-you-get-section section-light-bg">
+            <div class="container">
+                <h2 class="text-center">Here's a Peek Inside The 5-Minute Focus</h2>
+                <p class="text-center">This is more than just a book. It's a complete system for reclaiming your time and attention.</p>
+                <ul class="benefits-list">
+                    <li><strong>The Procrastination Paradox:</strong> You'll discover why your creative brain actively resists the work you love most, and how to use this knowledge to your advantage (it's not what you think).</li>
+                    <li><strong>The 5-Minute "Ignition" Sequence:</strong> Get the exact, word-for-word script to follow that makes starting your work automatic and effortless, bypassing your brain's natural resistance.</li>
+                    <li><strong>Building a "Focus Fortress":</strong> Learn how to eliminate the digital and physical distractions that kill your flow, without needing monk-like discipline or willpower.</li>
+                    <li><strong>The Momentum Multiplier:</strong> Discover how to chain together small "5-Minute Focus" blocks to achieve hours of deep, uninterrupted work, even on days you "don't feel like it."</li>
+                    <li><strong>Slaying the Perfectionism Dragon:</strong> Get my proven framework for shipping "good enough" work consistently, so you can stop getting trapped in endless revisions and finally build a body of work.</li>
+                    <li><strong>The "End of Day" Shutdown Ritual:</strong> A simple routine that lets you end your workday guilt-free, knowing you accomplished what mattered most, so you can truly relax and recharge.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bonuses-section">
+            <div class="container">
+                <h2 class="text-center">Order Today and You'll Also Get These Limited-Time Bonuses (Value: $111)</h2>
+                <h3>Bonus #1: The 5-Minute Focus Quickstart Checklist</h3>
+                <p>A one-page, printable PDF that gives you the entire "Ignition Sequence" at a glance. Tape it to your monitor and never forget the steps to getting started instantly.</p>
+                <p><strong>(Value: $27)</strong></p>
+                <h3>Bonus #2: The Distraction-Free Toolkit</h3>
+                <p>My private list of the best (and mostly free) apps and tools for blocking distracting websites, organizing ideas without getting overwhelmed, and creating a truly distraction-free digital workspace.</p>
+                <p><strong>(Value: $47)</strong></p>
+                <h3>Bonus #3: The "Flow State" Audio Track</h3>
+                <p>A 25-minute ambient audio track specifically engineered to help you tune out the world and lock into a state of deep focus. Perfect for your first "focus block" of the day.</p>
+                <p><strong>(Value: $37)</strong></p>
+            </div>
+        </section>
+
+        <section id="pricing" class="offer-stack-section section-light-bg">
+            <div class="container text-center">
+                <h2>Let's Recap Everything You Get</h2>
+                <div class="offer-stack">
+                    <p>✔ The 5-Minute Focus Ebook (Value: $47)</p>
+                    <p>✔ Bonus #1: Quickstart Checklist (Value: $27)</p>
+                    <p>✔ Bonus #2: The Distraction-Free Toolkit (Value: $47)</p>
+                    <p>✔ Bonus #3: "Flow State" Audio Track (Value: $37)</p>
+                    <hr>
+                    <p class="total-value">Total Value: $158</p>
+                    <h3>Get It All Today For Just...</h3>
+                    <p class="final-price">$27</p>
+                    <a href="#your-checkout-link" class="cta-button">
+                        Click Here to Get Instant Access
+                        <span class="cta-subtext">Secure 256-bit Encrypted Checkout</span>
+                    </a>
+                    <p style="margin-top:15px; font-size: 0.9rem;">You'll get immediate access to the ebook and all bonuses, even if it's 2 AM.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="guarantee-section">
+            <div class="container">
+                <div class="guarantee-box">
+                    <div class="guarantee-icon">🛡️</div>
+                    <div>
+                        <h2>Your "Ship Your Work" 30-Day Money-Back Guarantee</h2>
+                        <p>Your success is my success. That's why I'm giving you a full 30 days to read, implement, and test The 5-Minute Focus method. If you don't find yourself starting your work more easily and feeling more in control of your focus, just send me an email and I'll refund 100% of your purchase. No questions asked.</p>
+                        <p><strong>The only thing you have to lose is another day of procrastination.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section section-light-bg">
+            <div class="container text-center">
+                <h2>Two Roads Are in Front of You Right Now...</h2>
+                <p>You can continue down the same path, wrestling with distraction and ending each day with that familiar pang of guilt. Or you can take a new path. You can invest a tiny amount in a proven system for taking control.</p>
+                <p>Imagine, just 30 days from now, waking up knowing you have the tool to beat procrastination. The choice is yours.</p>
+                <a href="#your-checkout-link" class="cta-button">
+                    Yes, I'm Ready to Master My Focus!
+                    <span class="cta-subtext">Claim Your Copy + Bonuses Now</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="text-center">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <p class="faq-question">I have ADHD. Will this work for me?</p>
+                    <p class="faq-answer">While this isn't a medical treatment, many readers with ADHD have found the method extremely helpful because it's not based on <em>trying harder.</em> It's about lowering the barrier to entry so much that starting becomes easy, which works well for executive function challenges.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">How quickly will I get access?</p>
+                    <p class="faq-answer">Instantly. Your payment is processed securely, and you'll get an email with a private download link for the ebook and all the bonuses within minutes.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Isn't this just the Pomodoro Technique?</p>
+                    <p class="faq-answer">No. The Pomodoro Technique is a time management method for <em>during</em> work. The 5-Minute Focus is a system for <em>starting</em> work, which is often the hardest part. They can be used together, but they solve two different problems.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">What if I'm just too lazy for this to work?</p>
+                    <p class="faq-answer">This system is designed for people who <em>feel</em> lazy. You'll discover that what you call 'laziness' is often just a symptom of friction and overwhelm. By reducing that friction to almost zero, you don't need motivation to get started.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="ps-section">
+            <div class="container text-center">
+                <p class="final-ps"><strong>P.S.</strong> Let's be honest. If you've read this far, you know the pain of a day lost to procrastination. For less than the price of a few fancy coffees, you can get the exact blueprint to solve that problem. You'll get The 5-Minute Focus, the Quickstart Checklist, the Distraction-Free Toolkit, and the Flow State Audio, all for just $27. And it's 100% risk-free. <a href="#pricing">Click here to claim your copy now and make today the last day you <em>procrastinate</em>.</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a> |
+            <a href="#terms">Terms of Service</a> |
+            <a href="#contact">Contact</a>
+        </div>
+        <p>Copyright © 2025 Alex Carter Media. All Rights Reserved.</p>
+        <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    </footer>
+
+</body>
+</html>
